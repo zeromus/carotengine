@@ -1,0 +1,29 @@
+﻿Breaking changes in XNA Game Studio 4.0
+http://blogs.msdn.com/b/shawnhar/archive/2010/03/16/breaking-changes-in-xna-game-studio-4-0.aspx
+
+Vertex data in XNA Game Studio 4.0
+http://blogs.msdn.com/b/shawnhar/archive/2010/04/19/vertex-data-in-xna-game-studio-4-0.aspx
+
+Rendertarget changes in XNA Game Studio 4.0
+http://blogs.msdn.com/b/shawnhar/archive/2010/03/26/rendertarget-changes-in-xna-game-studio-4-0.aspx
+
+Effect interfaces in XNA Game Studio 4.0
+http://blogs.msdn.com/b/shawnhar/archive/2010/05/05/effect-interfaces-in-xna-game-studio-4-0.aspx
+
+Effect API changes in XNA Game Studio 4.0
+http://blogs.msdn.com/b/shawnhar/archive/2010/04/22/effect-api-changes-in-xna-game-studio-4-0.aspx
+
+stuff to pillage
+http://nuclexframework.codeplex.com/
+
+some HLSL examples
+http://rbwhitaker.wikidot.com/hlsl-tutorials
+
+weak FX examples
+http://http.developer.nvidia.com/CgTutorial/cg_tutorial_appendix_c.html
+
+debug shaders
+http://msdn.microsoft.com/en-us/library/ee417194%28v=VS.85%29.aspx
+
+xna thread performance
+http://blog.gockelhut.com/2009_08_01_archive.html

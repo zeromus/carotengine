@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectGuid>{DE8CF1B4-4B08-424F-9E8D-824137216123}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>pr2.CarotEngine</RootNamespace>
+    <AssemblyName>pr2.CarotEngine</AssemblyName>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <Thumbnail>
+    </Thumbnail>
+    <XnaCrossPlatformGroupID>{36ac1ca0-1c38-4f39-9df2-4a686fee5c07}</XnaCrossPlatformGroupID>
+    <StartupObject>
+    </StartupObject>
+    <XnaUpgrade>
+    </XnaUpgrade>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <XnaOutputType>Library</XnaOutputType>
+    <XnaProfile>HiDef</XnaProfile>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE%3bWINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile> .xml</DocumentationFile>
+    <XnaCompressContent>True</XnaCompressContent>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Avatar, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Input.Touch, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADML\ADML.Animation.cs" />
+    <Compile Include="ADML\ADML.CarotADMLCharacter.cs" />
+    <Compile Include="ADML\ADML.cs" />
+    <Compile Include="AppFramework.cs">
+      <Name>AppFramework</Name>
+    </Compile>
+    <Compile Include="CarotContentManager.cs">
+      <Name>CarotContentManager</Name>
+    </Compile>
+    <Compile Include="Common\CodecInputStream.cs" />
+    <Compile Include="Common\Compatibility.cs" />
+    <Compile Include="Common\Dice.cs" />
+    <Compile Include="Common\Lib.cs" />
+    <Compile Include="Common\Lib.Filesystem.cs" />
+    <Compile Include="Common\Lib.MagicSort.cs" />
+    <Compile Include="Common\Log.cs" />
+    <Compile Include="Common\Misc.cs" />
+    <Compile Include="Common\Mounts\AssemblyResources.cs" />
+    <Compile Include="Common\Mounts\Filesystem.cs" />
+    <Compile Include="Common\Mounts\FizzPackfile.cs" />
+    <Compile Include="Common\Mounts\VergePakfile.cs" />
+    <Compile Include="Common\ResourceManager.cs" />
+    <Compile Include="Common\SharpZipLib\BZip2\BZip2.cs" />
+    <Compile Include="Common\SharpZipLib\BZip2\BZip2Constants.cs" />
+    <Compile Include="Common\SharpZipLib\BZip2\BZip2Exception.cs" />
+    <Compile Include="Common\SharpZipLib\BZip2\BZip2InputStream.cs" />
+    <Compile Include="Common\SharpZipLib\BZip2\BZip2OutputStream.cs" />
+    <Compile Include="Common\SharpZipLib\Checksums\Adler32.cs" />
+    <Compile Include="Common\SharpZipLib\Checksums\CRC32.cs" />
+    <Compile Include="Common\SharpZipLib\Checksums\IChecksum.cs" />
+    <Compile Include="Common\SharpZipLib\Checksums\StrangeCRC.cs" />
+    <Compile Include="Common\SharpZipLib\Core\FileSystemScanner.cs" />
+    <Compile Include="Common\SharpZipLib\Core\INameTransform.cs" />
+    <Compile Include="Common\SharpZipLib\Core\IScanFilter.cs" />
+    <Compile Include="Common\SharpZipLib\Core\NameFilter.cs" />
+    <Compile Include="Common\SharpZipLib\Core\PathFilter.cs" />
+    <Compile Include="Common\SharpZipLib\Core\StreamUtils.cs" />
+    <Compile Include="Common\SharpZipLib\Core\WindowsPathUtils.cs" />
+    <Compile Include="Common\SharpZipLib\Encryption\PkzipClassic.cs" />
+    <Compile Include="Common\SharpZipLib\Encryption\ZipAESStream.cs" />
+    <Compile Include="Common\SharpZipLib\Encryption\ZipAESTransform.cs" />
+    <Compile Include="Common\SharpZipLib\GZip\GZIPConstants.cs" />
+    <Compile Include="Common\SharpZipLib\GZip\GZipException.cs" />
+    <Compile Include="Common\SharpZipLib\GZip\GzipInputStream.cs" />
+    <Compile Include="Common\SharpZipLib\GZip\GzipOutputStream.cs" />
+    <Compile Include="Common\SharpZipLib\Lzw\LzwConstants.cs" />
+    <Compile Include="Common\SharpZipLib\Lzw\LzwException.cs" />
+    <Compile Include="Common\SharpZipLib\Lzw\LzwInputStream.cs" />
+    <Compile Include="Common\SharpZipLib\SharpZipBaseException.cs" />
+    <Compile Include="Common\SharpZipLib\Tar\InvalidHeaderException.cs" />
+    <Compile Include="Common\SharpZipLib\Tar\TarArchive.cs" />
+    <Compile Include="Common\SharpZipLib\Tar\TarBuffer.cs" />
+    <Compile Include="Common\SharpZipLib\Tar\TarEntry.cs" />
+    <Compile Include="Common\SharpZipLib\Tar\TarException.cs" />
+    <Compile Include="Common\SharpZipLib\Tar\TarHeader.cs" />
+    <Compile Include="Common\SharpZipLib\Tar\TarInputStream.cs" />
+    <Compile Include="Common\SharpZipLib\Tar\TarOutputStream.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\Deflater.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\Inflater.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\Streams\DeflaterOutputStream.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\Streams\InflaterInputStream.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\FastZip.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\IEntryFactory.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\WindowsNameTransform.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\ZipConstants.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\ZipEntry.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\ZipEntryFactory.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\ZipException.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\ZipExtraData.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\ZipFile.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\ZipHelperStream.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\ZipInputStream.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\ZipNameTransform.cs" />
+    <Compile Include="Common\SharpZipLib\Zip\ZipOutputStream.cs" />
+    <Compile Include="Common\SimpleArchive.cs" />
+    <Compile Include="Common\Str.cs" />
+    <Compile Include="Common\Streams.cs" />
+    <Compile Include="Common\StringBufferReader.cs" />
+    <Compile Include="EntityEngine.cs">
+      <Name>EntityEngine</Name>
+    </Compile>
+    <Compile Include="Enums.cs">
+      <Name>Enums</Name>
+    </Compile>
+    <Compile Include="GameConfiguration.cs" />
+    <Compile Include="GameEngine.cs">
+      <Name>GameEngine</Name>
+    </Compile>
+    <Compile Include="GameEngine.Lib.cs" />
+    <Compile Include="Graphics\Blitter.cs">
+      <Name>Blitter</Name>
+    </Compile>
+    <Compile Include="Graphics\Graphics.cs">
+      <Name>Graphics</Name>
+    </Compile>
+    <Compile Include="Graphics\Graphics.GRS.cs">
+      <Name>Graphics.GRS</Name>
+    </Compile>
+    <Compile Include="Graphics\Graphics.Rendering.cs">
+      <Name>Graphics.Rendering</Name>
+    </Compile>
+    <Compile Include="Graphics\Graphics.SpriteManager.cs">
+      <Name>Graphics.SpriteManager</Name>
+    </Compile>
+    <Compile Include="Graphics\Graphics.Techniques.cs">
+      <Name>Graphics.Techniques</Name>
+    </Compile>
+    <Compile Include="Graphics\Graphics.Transforms.cs">
+      <Name>Graphics.Transforms</Name>
+    </Compile>
+    <Compile Include="Graphics\Image.cs">
+      <Name>Image</Name>
+    </Compile>
+    <Compile Include="Graphics\Mesh.cs">
+      <Name>Mesh</Name>
+    </Compile>
+    <Compile Include="Graphics\RenderState.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RenderState.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Graphics\SoftGraphics.cs">
+      <Name>SoftGraphics</Name>
+    </Compile>
+    <Compile Include="Graphics\Vertices.cs">
+      <Name>Vertices</Name>
+    </Compile>
+    <Compile Include="ICharacters\Collections.cs">
+      <Name>Collections</Name>
+    </Compile>
+    <Compile Include="ICharacters\StandardChrAnimationController.cs" />
+    <Compile Include="ICharacters\V3ChrController.cs">
+      <Name>V3ChrController</Name>
+    </Compile>
+    <Compile Include="Map.cs">
+      <Name>Map</Name>
+    </Compile>
+    <Compile Include="Misc\Dictionaries.cs" />
+    <Compile Include="Misc\Dimmer.cs" />
+    <Compile Include="Misc\Fx32.cs" />
+    <Compile Include="Misc\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\MatrixStack.cs">
+      <Name>MatrixStack</Name>
+    </Compile>
+    <Compile Include="Misc\RectangleF.cs" />
+    <Compile Include="Misc\Size.cs">
+      <Name>Size</Name>
+    </Compile>
+    <Compile Include="Misc\SizeF.cs">
+      <Name>SizeF</Name>
+    </Compile>
+    <Compile Include="Misc\SMK_EditListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Misc\Util.cs" />
+    <Compile Include="Paths.cs">
+      <Name>Paths</Name>
+    </Compile>
+    <Compile Include="Platform.cs">
+      <Name>Platform</Name>
+    </Compile>
+    <Compile Include="PlayerInput.cs">
+      <Name>PlayerInput</Name>
+    </Compile>
+    <Compile Include="sharppng\pcx\pcx.cs" />
+    <Compile Include="sharppng\png\BigEndianBinaryReader.cs" />
+    <Compile Include="sharppng\png\CrcInputStream.cs" />
+    <Compile Include="sharppng\png\Defilterer.cs" />
+    <Compile Include="sharppng\png\ImageOutput.cs" />
+    <Compile Include="sharppng\png\png.cs" />
+    <Compile Include="sharppng\png\SubInputStream.cs" />
+    <Compile Include="sharppng\test.cs" />
+    <Compile Include="Text\Text.cs" />
+    <Compile Include="Text\V3Sysfont.cs" />
+    <Compile Include="Text\XnaSpriteFontRenderer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TileEngine.Camera.cs" />
+    <Compile Include="TileEngine.cs">
+      <Name>TileEngine</Name>
+    </Compile>
+    <Compile Include="TouchManager.cs" />
+    <Compile Include="V3Chr.cs">
+      <Name>V3Chr</Name>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedContent\WhiteNoise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <NestedContentProject Include="Content.contentproj">
+      <Project>{36ea10aa-a51e-462b-addb-c6b5a3759f88}</Project>
+      <Visible>False</Visible>
+    </NestedContentProject>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="carotengineContent.contentproj">
+      <Project>{36EA10AA-A51E-462B-ADDB-C6B5A3759F88}</Project>
+      <Name>carotengineContent %28.%29</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Xna.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft XNA Framework Redistributable 3.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Xna.Framework.4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft XNA Framework Redistributable 4.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\RenderState.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RenderState.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sharppng\pcx\OpenPCX.cpp" />
+    <Content Include="urls.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" Condition="" />
+</Project>

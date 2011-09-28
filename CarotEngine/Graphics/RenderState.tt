@@ -1,0 +1,146 @@
+﻿//http://blogs.msdn.com/b/davidebb/archive/2009/07/17/two-ways-to-use-t4-templates-support-code-vs-one-time-generation.aspx
+//http://www.microsoft.com/downloads/en/details.aspx?FamilyID=47305cf4-2bea-43c0-91cd-1b853602dcc5&displaylang=en (not helpful)
+//http://www.microsoft.com/downloads/en/details.aspx?FamilyID=b3deb194-ca86-4fb6-a716-b67c2604a139&displaylang=en
+
+<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+<#
+GenerateClass("RasterizerState",@"
+Microsoft.Xna.Framework.Graphics.CullMode CullMode Microsoft.Xna.Framework.Graphics.CullMode.CullCounterClockwiseFace
+float DepthBias 0f
+Microsoft.Xna.Framework.Graphics.FillMode FillMode Microsoft.Xna.Framework.Graphics.FillMode.Solid
+bool MultiSampleAntiAlias true
+bool ScissorTestEnable false
+float SlopeScaleDepthBias 0f
+");
+
+GenerateClass("BlendState",@"
+BlendFunction AlphaBlendFunction BlendFunction.Add
+Blend AlphaDestinationBlend Blend.Zero
+Blend AlphaSourceBlend Blend.One
+Color BlendFactor Color.White
+BlendFunction ColorBlendFunction BlendFunction.Add
+Blend ColorDestinationBlend Blend.Zero
+Blend ColorSourceBlend Blend.One
+Microsoft.Xna.Framework.Graphics.ColorWriteChannels ColorWriteChannels Microsoft.Xna.Framework.Graphics.ColorWriteChannels.All
+Microsoft.Xna.Framework.Graphics.ColorWriteChannels ColorWriteChannels1 Microsoft.Xna.Framework.Graphics.ColorWriteChannels.All
+Microsoft.Xna.Framework.Graphics.ColorWriteChannels ColorWriteChannels2 Microsoft.Xna.Framework.Graphics.ColorWriteChannels.All
+Microsoft.Xna.Framework.Graphics.ColorWriteChannels ColorWriteChannels3 Microsoft.Xna.Framework.Graphics.ColorWriteChannels.All
+int MultiSampleMask -1
+");
+
+GenerateClass("SamplerState",@"
+TextureAddressMode AddressU TextureAddressMode.Clamp
+TextureAddressMode AddressV TextureAddressMode.Clamp
+TextureAddressMode AddressW TextureAddressMode.Clamp
+TextureFilter Filter TextureFilter.Linear
+int MaxAnisotropy 4
+int MaxMipLevel 0
+float MipMapLevelOfDetailBias 0f
+",true);
+
+GenerateClass("DepthStencilState",@"
+StencilOperation CounterClockwiseStencilDepthBufferFail StencilOperation.Keep
+StencilOperation CounterClockwiseStencilFail StencilOperation.Keep
+CompareFunction CounterClockwiseStencilFunction CompareFunction.Always
+StencilOperation CounterClockwiseStencilPass StencilOperation.Keep
+bool DepthBufferEnable true
+CompareFunction DepthBufferFunction CompareFunction.LessEqual
+bool DepthBufferWriteEnable true
+int ReferenceStencil 0
+StencilOperation StencilDepthBufferFail StencilOperation.Keep
+bool StencilEnable false
+StencilOperation StencilFail StencilOperation.Keep
+CompareFunction StencilFunction CompareFunction.Always
+int StencilMask -1
+StencilOperation StencilPass StencilOperation.Keep
+int StencilWriteMask -1
+bool TwoSidedStencilMode false
+");
+
+#>
+
+
+<#+
+void GenerateClass(string classname, string description) { GenerateClass(classname,description,false); }
+void GenerateClass(string classname, string description, bool sampler)
+{
+	var tuples = new List<Tuple<string,string,string>>();
+	foreach(string line in description.Split(new string[]{"\r\n"},StringSplitOptions.RemoveEmptyEntries))
+	{
+		string[] parts = line.Split(' ');
+		tuples.Add(Tuple.Create(parts[0],parts[1],parts[2]));
+	}
+
+	string fullClassName = "Carot" + classname;
+
+	WriteLine(string.Format(@"
+namespace pr2.CarotEngine {{
+public class {0}
+{{
+",fullClassName));
+
+if(sampler) {
+	WriteLine("int samplerNum;");
+	WriteLine(string.Format("public {0}(int samplerNum) {{ this.samplerNum = samplerNum; }}",fullClassName));
+}
+
+
+
+foreach(var t in tuples)
+{
+ string type = t.Item1;
+ string name = t.Item2;
+ string cacheName = "cache_" + name;
+ string defVal = t.Item3;
+ WriteLine(string.Format("internal {0} {1} = {2};",type,cacheName,defVal));
+ WriteLine(string.Format("public {0} {1} {{ get {{ return {2}; }} set {{ if({2} != value) {{ change(); {2} = value; }} }} }}",type,name,cacheName));
+}
+
+
+WriteLine(@" 
+
+bool dirty = false;
+private void change()
+{
+	dirty = true;
+}
+
+");
+
+
+WriteLine(string.Format(@" 
+public void Apply() {{
+	if(!dirty) return;
+	dirty = false;
+	{0} s = new {0}();
+",classname));
+	foreach(var t in tuples)
+	{
+		string type = t.Item1;
+		string name = t.Item2;
+		string cacheName = "cache_" + name;
+		WriteLine(string.Format("	s.{1} = {2};",type,name,cacheName));
+	}
+
+if(sampler)
+	WriteLine(string.Format("GameEngine.Game.Device.SamplerStates[samplerNum] = s;"));
+else
+	WriteLine(string.Format("GameEngine.Game.Device.{0} = s;",classname));
+
+WriteLine(@"
+} //Apply()
+}//class
+}//namespace
+");
+
+} //GenerateClass
+#>
+
