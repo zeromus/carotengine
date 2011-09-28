@@ -199,36 +199,36 @@ namespace pr2.CarotEngine {
 
 		public void renderLayerFast(bool isBottom, int xo, int yo, Map.TileLayer l, Image dest) {
 
-			//SimpleVertex[] v = new SimpleVertex[4];
-			//v[0].x = v[0].y = 0;
-			//v[1].x = dest.Width; v[0].y = 0;
-			//v[2].x = dest.Width; v[2].y = dest.Height;
-			//v[3].x = 0; v[3].y = dest.Height;
+            //SimpleVertex[] v = new SimpleVertex[4];
+            //v[0].x = v[0].y = 0;
+            //v[1].x = dest.Width; v[0].y = 0;
+            //v[2].x = dest.Width; v[2].y = dest.Height;
+            //v[3].x = 0; v[3].y = dest.Height;
 
-			//v[0].tu = xo / 16.0f;
-			//v[0].tv = yo / 16.0f;
-			//v[1].tu = v[0].tu + dest.Width / 16.0f;
-			//v[1].tv = v[0].tv;
-			//v[2].tu = v[1].tu;
-			//v[2].tv = v[0].tv + dest.Height / 16.0f;
-			//v[3].tu = v[0].tu;
-			//v[3].tv = v[2].tv;
+            //v[0].tu = xo / 16.0f;
+            //v[0].tv = yo / 16.0f;
+            //v[1].tu = v[0].tu + dest.Width / 16.0f;
+            //v[1].tv = v[0].tv;
+            //v[2].tu = v[1].tu;
+            //v[2].tv = v[0].tv + dest.Height / 16.0f;
+            //v[3].tu = v[0].tu;
+            //v[3].tv = v[2].tv;
 
-			//game.CustomRender();
-			//game.Techniques.map.setTextures(l.tex, m.vsp.tiles.getTex());
-			//game.Techniques.map.setParams(m.vsp.tilesW, m.vsp.tilesH, l.width, l.height);
-			//game.Techniques.map.Activate();
+            //game.CustomRender();
+            //game.Techniques.map.setTextures(l.tex, m.vsp.tiles.getTex());
+            //game.Techniques.map.setParams(m.vsp.tilesW, m.vsp.tilesH, l.width, l.height);
+            //game.Techniques.map.Activate();
 
-			//game.SetPointFiltering(0); //tilemap HAS to be point filtering. make sure here
-			////game.setLinearFiltering(1); //in case we want linear filtering
-			
-			//if(isBottom)
-			//    game.DisableAlphaBlend();
+            //game.SetPointFiltering(0); //tilemap HAS to be point filtering. make sure here
+            ////game.setLinearFiltering(1); //in case we want linear filtering
 
-			//game.Device.DrawUserPrimitives(PrimitiveType.TriangleStrip, v, 0, 2);
+            //if (isBottom)
+            //    game.DisableAlphaBlend();
 
-			//if (isBottom)
-			//    game.EnableAlphaBlend();
+            //game.Device.DrawUserPrimitives(PrimitiveType.TriangleStrip, v, 0, 2);
+
+            //if (isBottom)
+            //    game.EnableAlphaBlend();
 		}
 
 		public void renderFast(int rx, int ry, Image dest) {
@@ -257,7 +257,9 @@ namespace pr2.CarotEngine {
 		}
 
 		public void render(Image dest) {
-			renderFast((int)camera.X, (int)camera.Y, dest);
+			//renderFast((int)camera.X, (int)camera.Y, dest);
+            Blitter b = new Blitter(dest);
+            render((int)camera.X, (int)camera.Y, b);
 		}
 
 	}

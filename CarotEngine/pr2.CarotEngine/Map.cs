@@ -20,8 +20,8 @@ public class Map
 	public class VspFileBrokenException : Exception { public VspFileBrokenException(string str, string file) : base(str+"\n"+file){} }
 
 
-
-	//public MapScriptHandler scriptHandler;
+    RpgController rpgController;
+	public MapScriptHandler scriptHandler;
 	public string name,vspfile,musicfile;
 	public string rstring,initscript;
 	public Point start = new Point(0,0);
@@ -396,9 +396,9 @@ public class Map
 	}
 
 
-	public Map(string fname)
+	public Map(string fname, RpgController rpgController)
 	{
-		//scriptHandler = new MapScriptHandler(fname, this, rpgController);
+		scriptHandler = new MapScriptHandler(fname, this, rpgController);
 		Stream s = ResourceManager.Open(fname);
 		BinaryReader br = new BinaryReader(s);
 		

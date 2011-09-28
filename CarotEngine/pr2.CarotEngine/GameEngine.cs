@@ -89,6 +89,8 @@ partial class GameEngine {
 		InitializeDevice();
 	}
 
+    public virtual Type FindMeAFuckingType(string name) { return null; }
+
 	void manager_DeviceReset(object sender, EventArgs e) {
 		InitializeDevice();
 		//Image.RestoreAll();

@@ -120,6 +120,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionScript.cs" />
     <Compile Include="ADML\ADML.Animation.cs" />
     <Compile Include="ADML\ADML.CarotADMLCharacter.cs" />
     <Compile Include="ADML\ADML.cs" />
@@ -263,9 +264,16 @@
     <Compile Include="ICharacters\V3ChrController.cs">
       <Name>V3ChrController</Name>
     </Compile>
+    <Compile Include="IScriptActions\ScriptCallack.cs" />
+    <Compile Include="IScriptActions\ScriptCameraMove.cs" />
+    <Compile Include="IScriptActions\ScriptEntityMove.cs" />
+    <Compile Include="IScriptActions\ScriptGenericEntityAction.cs" />
+    <Compile Include="IScriptActions\ScriptWait.cs" />
     <Compile Include="Map.cs">
       <Name>Map</Name>
     </Compile>
+    <Compile Include="MapScript.cs" />
+    <Compile Include="MapScriptHandler.cs" />
     <Compile Include="Misc\Dictionaries.cs" />
     <Compile Include="Misc\Dimmer.cs" />
     <Compile Include="Misc\Fx32.cs" />
@@ -295,6 +303,8 @@
     <Compile Include="PlayerInput.cs">
       <Name>PlayerInput</Name>
     </Compile>
+    <Compile Include="RpgController.cs" />
+    <Compile Include="RpgController.scripts.cs" />
     <Compile Include="sharppng\pcx\pcx.cs" />
     <Compile Include="sharppng\png\BigEndianBinaryReader.cs" />
     <Compile Include="sharppng\png\CrcInputStream.cs" />
