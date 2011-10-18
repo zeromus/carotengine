@@ -97,7 +97,7 @@ public partial class GameEngine {
 		DepthStencilState.DepthBufferWriteEnable = false;
 		//renderState.Clipping = false;
 		//renderState.LastPixel = true;
-		EnableAlphaBlend();
+		BlendNormal();
 
 		SetPointFiltering();
 
@@ -109,7 +109,10 @@ public partial class GameEngine {
         SetDest(null);
 	}
 
-	public void EnableAlphaBlend()
+	/// <summary>
+	/// Sets alpha blending to normal pre-multiplied state
+	/// </summary>
+	public void BlendNormal()
 	{
 		BlendState.ColorDestinationBlend = Blend.InverseSourceAlpha;
 		BlendState.AlphaDestinationBlend = Blend.InverseSourceAlpha;
@@ -118,7 +121,22 @@ public partial class GameEngine {
 		BlendState.ColorWriteChannels = ColorWriteChannels.All;
 	}
 
-	public void DisableAlphaBlend()
+	/// <summary>
+	/// Sets alpha blending to an additive style
+	/// </summary>
+	public void BlendAdditive()
+	{
+		BlendState.ColorDestinationBlend = Blend.One;
+		BlendState.AlphaDestinationBlend = Blend.One;
+		BlendState.ColorSourceBlend = Blend.One;
+		BlendState.ColorBlendFunction = BlendFunction.Add;
+		BlendState.ColorWriteChannels = ColorWriteChannels.All;
+	}
+
+	/// <summary>
+	/// bypasses alpha blending (doesnt actually disable it though, be aware in case theres a difference)
+	/// </summary>
+	public void BlendNone()
 	{
 		BlendState.ColorDestinationBlend = Blend.Zero;
 		BlendState.AlphaDestinationBlend = Blend.Zero;

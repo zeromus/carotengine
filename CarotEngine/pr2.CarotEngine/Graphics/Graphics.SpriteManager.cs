@@ -79,7 +79,7 @@ public partial class GameEngine {
 		ret.NumFrames = framesAcross*framesDown;
 		ret.frames = new Image[ret.NumFrames];
 		int ctr=0;
-		DisableAlphaBlend();
+		BlendNone();
 		for (int iy=0; iy<framesDown; iy++) {
 			for(int ix=0;ix<framesAcross; ix++,ctr++) {
 				Image img = NewImage(width, height);
@@ -91,7 +91,7 @@ public partial class GameEngine {
 				img.Premultiply();
 			}
 		}
-		EnableAlphaBlend();
+		BlendNormal();
 		return ret;
 	}
 }
