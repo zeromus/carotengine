@@ -312,8 +312,8 @@ namespace pr2.CarotEngine {
 							int p = psrc[0];
 							psrc++;
 							for(int i=0;i<4;i++) {
-								int b = p & 0x02;
-								p >>= 2;
+								int b = (p & 0xC0)>>6;
+								p <<= 2;
 								if (b==0) {
 									*((int*)pdst) = 0;
 									pdst += 4;
@@ -374,8 +374,8 @@ namespace pr2.CarotEngine {
 							int p = psrc[0];
 							psrc++;
 							for (int i=0; i<4; i++) {
-								int b = p & 0x02;
-								p >>= 2;
+								int b = (p & 0xC0) >> 6;
+								p <<= 2;
 								#if XBOX360
 									*pdst++ = 0xFF;
 									*pdst++ = png.palette[b*3+2];
