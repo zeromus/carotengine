@@ -91,6 +91,8 @@ namespace Timeless {
 			sun = LoadImage0("sprites/sun.png");
 			candle = LoadImage0("sprites/candle.png");
 			clock = LoadImage0("sprites/smallclock.png");
+
+			halo.image.Alphafy(Color.Magenta);
 		}
 
 

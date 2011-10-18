@@ -44,9 +44,10 @@ namespace Timeless {
 			double s = Math.Cos(Lib.Rads(degrees));
 			return (int)(s * 65535);
 		}
-
 		protected override void GameInitialize()
 		{
+			app.IsFixedTimeStep = true;
+			app.TargetElapsedTime = TimeSpan.FromMilliseconds(10);
 			SetResolution(320, 200);
 			StaticInitializers();
 			Autoexec();
@@ -67,7 +68,7 @@ namespace Timeless {
 			Blitter b = new Blitter(screen);
 			b.Clear(Color.Gray);
 			RenderSprites(b);
-			
+			app.Window.Title = systemtime.ToString();
 		}
 	}
 }

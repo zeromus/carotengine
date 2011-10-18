@@ -14,9 +14,6 @@ namespace Timeless
 {
 	partial class Timeless
 	{
-
-		Image dumb = null;
-
 		struct cnode
 		{
 			public int angle;
@@ -31,7 +28,6 @@ namespace Timeless
 
 		void InitializeCandle()
 		{
-			if (dumb == null) dumb = NewImage(1, 1);
 			spr_state = SPR_CANDLE;
 			spr_die = systemtime + 800;
 
@@ -87,9 +83,9 @@ namespace Timeless
 				haloframe = candles[i].frame;
 				if (haloframe > 4)
 					haloframe -= 5;
-				//BlitFrame(0, 0, halo, haloframe, dumb); //wtf?
-				//TAdditiveBlit(x - 1 - (144 / 2), y - 14 - (144 / 2), anims[halo].bufimage, screen);
-				//TODO additive wtf?
+				BlendAdditive();
+				b.BlitSubrect(halo.image, 0, halo.sizey * haloframe, halo.sizex, halo.sizey, x - 1 - (144 / 2), y - 14 - (144 / 2));
+				BlendNormal();
 			}
 		}
 	}
