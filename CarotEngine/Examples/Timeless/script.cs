@@ -30,15 +30,15 @@ namespace Timeless {
 				switch (r)
 				{
 					case 1: InitializeSlug(Random(0, 1)); break;
-					//case 2: InitializeFlyer(Random(0,4)); break;
-					//case 3: InitializeFlower(); break;
-					//case 4: InitializeCelestial(Random(0,2)); break;
-					//case 5: InitializeCircular(Random(0,5)); break;
-					//case 6: InitializeFish(Random(0,1)); break;
-					//case 7: InitializeSmilies(Random(0,1)); break;
-					//case 8:	InitializeLeaves(Random(0,2)); break;
-					//case 9: InitializeWeather(Random(0,1)); break;
-					//case 10: InitializeCandle(); break;
+					case 2: InitializeFlyer(Random(0,4)); break;
+					case 3: InitializeFlower(); break;
+					case 4: InitializeCelestial(Random(0,2)); break;
+					case 5: InitializeCircular(Random(0,5)); break;
+					case 6: InitializeFish(Random(0,1)); break;
+					case 7: InitializeSmilies(Random(0,1)); break;
+					case 8:	InitializeLeaves(Random(0,2)); break;
+					case 9: InitializeWeather(Random(0,1)); break;
+					case 10: InitializeCandle(); break;
 
 				}
 			}

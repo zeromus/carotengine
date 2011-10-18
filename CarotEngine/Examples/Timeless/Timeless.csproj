@@ -158,7 +158,16 @@
     <Compile Include="Resource.cs" />
     <Compile Include="script.cs" />
     <Compile Include="sprites.cs" />
+    <Compile Include="sprites\spr_candle.cs" />
+    <Compile Include="sprites\spr_celestial.cs" />
+    <Compile Include="sprites\spr_circular.cs" />
+    <Compile Include="sprites\spr_fish.cs" />
+    <Compile Include="sprites\spr_flower.cs" />
+    <Compile Include="sprites\spr_flyer.cs" />
+    <Compile Include="sprites\spr_leaves.cs" />
     <Compile Include="sprites\spr_slug.cs" />
+    <Compile Include="sprites\spr_smilies.cs" />
+    <Compile Include="sprites\spr_weather.cs" />
     <Compile Include="system.cs" />
     <Compile Include="timeless.cs" />
   </ItemGroup>

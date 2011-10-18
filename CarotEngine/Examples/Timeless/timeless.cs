@@ -33,6 +33,18 @@ namespace Timeless {
 			return rnd.Next(min, max + 1);
 		}
 
+		int sin(int degrees)
+		{
+			double s = Math.Sin(Lib.Rads(degrees));
+			return (int)(s * 65535);
+		}
+
+		int cos(int degrees)
+		{
+			double s = Math.Cos(Lib.Rads(degrees));
+			return (int)(s * 65535);
+		}
+
 		protected override void GameInitialize()
 		{
 			SetResolution(320, 200);

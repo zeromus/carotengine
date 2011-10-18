@@ -34,6 +34,14 @@ namespace Timeless {
 			return anim;
 		}
 
+		void BlitFrame(int x, int y, anim_t anim, int frame, Blitter b)
+		{
+			if (frame > anim.numframes)
+				return;
+
+			int frametop = anim.sizey * frame;
+			b.BlitSubrect(anim.image, 0, frametop, anim.sizex, anim.sizey, x, y);
+		}
 
 		void BlitFrameAt(int x, int y, anim_t anim, int frame, Blitter b)
 		{
@@ -42,7 +50,13 @@ namespace Timeless {
 
 			//if (frame == anim.bufferedframe)
 			int frametop = anim.sizey * frame;
-			b.BlitSubrect(anim.image, 0, frametop, anim.sizex, anim.sizey, x, y);
+			b.BlitSubrect(anim.image, 0, frametop, anim.sizex, anim.sizey, x-anim.sizex/2, y-anim.sizey/2);
+		}
+
+
+		void BlitAt(int x, int y, Image img, Blitter b)
+		{
+			b.Blit(img, x - (img.Width / 2), y - (img.Height / 2));
 		}
 
 	}

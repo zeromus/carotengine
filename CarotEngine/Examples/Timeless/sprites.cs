@@ -39,15 +39,15 @@ namespace Timeless {
 			switch (spr_state)
 			{
 				case SPR_SLUG: RenderSlug(b); break;
-				//case SPR_FLY: RenderFlyer(); break;
-				//case SPR_FLOWER: RenderFlower() break;
-				//case SPR_CELESTIAL: RenderCelestial(); break;
-				//case SPR_CIRCULAR: RenderCircular(); break;
-				//case SPR_FISH: RenderFish(); break;
-				//case SPR_SMILIES: RenderSmilies(); break;
-				//case SPR_LEAVES: RenderLeaves(); break;
-				//case SPR_WEATHER: RenderWeather() break;
-				//case SPR_CANDLE: RenderCandle(); break;
+				case SPR_FLY: RenderFlyer(b); break;
+				case SPR_FLOWER: RenderFlower(b); break;
+				case SPR_CELESTIAL: RenderCelestial(b); break;
+				case SPR_CIRCULAR: RenderCircular(b); break;
+				case SPR_FISH: RenderFish(b); break;
+				case SPR_SMILIES: RenderSmilies(b); break;
+				case SPR_LEAVES: RenderLeaves(b); break;
+				case SPR_WEATHER: RenderWeather(b); break;
+				case SPR_CANDLE: RenderCandle(b); break;
 			}
 		}
 	}
