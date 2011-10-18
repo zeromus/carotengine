@@ -35,7 +35,6 @@ namespace pr2.CarotEngine
 
 	/// <summary>
 	/// Derive your game from this. It provides useful APIs which you should view as globals.
-	/// 
 	/// </summary>
 	partial class GameEngine
 	{
@@ -48,7 +47,11 @@ namespace pr2.CarotEngine
 
 		public void Run()
 		{
+			//TODO - this is the source of much trouble. we need a global device, not a global game engine.
+			//it may need to be refactored to be a separate xna wapper and game engine (as an optional service)
+			//(this is for multiwin support)
 			Game = this;
+
 			using (AppFramework app = new AppFramework())
 			{
 				this.app = app;

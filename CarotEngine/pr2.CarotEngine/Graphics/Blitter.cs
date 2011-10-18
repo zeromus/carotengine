@@ -81,7 +81,10 @@ public class Blitter : GameEngineComponent {
 		grs.transform = Matrix.CreateTranslation(_window.X, _window.Y, 0);
 	}
 
-
+	/// <summary>
+	/// Sets the current rendering destination.
+	/// TODO - is it a good idea to change this or should we make a new blitter?
+	/// </summary>
 	public Image Dest {
 		get { return _dest; }
 		set {

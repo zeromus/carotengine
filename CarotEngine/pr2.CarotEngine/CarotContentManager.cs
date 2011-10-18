@@ -267,6 +267,43 @@ namespace pr2.CarotEngine {
 							#endif
 						}
 					}
+					else if (bColor0 && png.ihdr.colortype == pr2.sharppng.ColorType.PALETTE && png.ihdr.bitdepth == 1)
+					{
+						int xmax = width;
+						int x = 0;
+						for (; ; )
+						{
+							int p = psrc[0];
+							psrc++;
+							for (int i = 0; i < 8; i++)
+							{
+								int b = p & 0x01;
+								p >>= 1;
+								if (b == 0)
+								{
+									*((int*)pdst) = 0;
+									pdst += 4;
+								}
+								else
+								{
+#if XBOX360
+										*pdst++ = 0xFF;
+										*pdst++ = png.palette[b*3+2];
+										*pdst++ = png.palette[b*3+1];
+										*pdst++ = png.palette[b*3+0];
+#else
+									*pdst++ = png.palette[b * 3 + 0];
+									*pdst++ = png.palette[b * 3 + 1];
+									*pdst++ = png.palette[b * 3 + 2];
+									*pdst++ = 0xFF;
+#endif
+								}
+								x++;
+								if (x == width) break;
+							}
+							if (x == width) break;
+						}
+					}
 					else if (bColor0 && png.ihdr.colortype == pr2.sharppng.ColorType.PALETTE && png.ihdr.bitdepth == 2) {
 						int xmax = width;
 						int x = 0;
@@ -297,6 +334,35 @@ namespace pr2.CarotEngine {
 								if (x==width) break;
 							}
 							if (x==width) break;
+						}
+					}
+					else if (png.ihdr.colortype == pr2.sharppng.ColorType.PALETTE && png.ihdr.bitdepth == 1)
+					{
+						int xmax = width;
+						int x = 0;
+						for (; ; )
+						{
+							int p = psrc[0];
+							psrc++;
+							for (int i = 0; i < 8; i++)
+							{
+								int b = p & 0x01;
+								p >>= 1;
+#if XBOX360
+									*pdst++ = 0xFF;
+									*pdst++ = png.palette[b*3+2];
+									*pdst++ = png.palette[b*3+1];
+									*pdst++ = png.palette[b*3+0];
+#else
+								*pdst++ = png.palette[b * 3 + 0];
+								*pdst++ = png.palette[b * 3 + 1];
+								*pdst++ = png.palette[b * 3 + 2];
+								*pdst++ = 0xFF;
+#endif
+								x++;
+								if (x == width) break;
+							}
+							if (x == width) break;
 						}
 					}
 					else if (png.ihdr.colortype == pr2.sharppng.ColorType.PALETTE && png.ihdr.bitdepth == 2) {

@@ -1,4 +1,7 @@
-﻿Breaking changes in XNA Game Studio 4.0
+﻿working on multiwin
+http://create.msdn.com/en-US/education/catalog/sample/winforms_series_1
+
+Breaking changes in XNA Game Studio 4.0
 http://blogs.msdn.com/b/shawnhar/archive/2010/03/16/breaking-changes-in-xna-game-studio-4-0.aspx
 
 Vertex data in XNA Game Studio 4.0
