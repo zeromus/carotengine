@@ -289,7 +289,7 @@ namespace pr2.Common {
 		    byte *bsrc = (byte*)src;
 		    int tcol = tcolor&0x00FFFFFF;
 		    for(;idest<destmax;idest++,bsrc+=3) {
-				int col = (bsrc[0]<<16)|(bsrc[1]<<8)|bsrc[2];
+				int col = (bsrc[2]<<16)|(bsrc[1]<<8)|bsrc[0];
 		        if(col==tcol)
 		            *idest = 0;
 				else *idest = col | unchecked((int)0xFF000000);
