@@ -24,24 +24,38 @@ namespace Timeless {
 			timeless.Run();
 		}
 
+		int systemtime;
+
+		Random rnd = new Random();
+
+		int Random(int min, int max)
+		{
+			return rnd.Next(min, max + 1);
+		}
+
 		protected override void GameInitialize()
 		{
 			SetResolution(320, 200);
-			test = LoadImage0("sprites/hourglass.png");
+			StaticInitializers();
+			Autoexec();
 		}
 
-		Image test;
 
-		public override void Update(GameTime gameTime) {
-			if (Microsoft.Xna.Framework.Input.GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-				Exit();
-			base.Update(gameTime);
+		public override void Update(GameTime gameTime)
+		{
+			base.Update(gameTime); 
+			if (Microsoft.Xna.Framework.Input.GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) Exit();
+			systemtime++;
+			MyTimer();
+			Tick();
 		}
+
 
 		protected override void Draw(GameTime gameTime) {
 			Blitter b = new Blitter(screen);
 			b.Clear(Color.Gray);
-			b.Blit(test, 100, 100);
+			RenderSprites(b);
+			
 		}
 	}
 }

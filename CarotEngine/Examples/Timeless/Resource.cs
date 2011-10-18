@@ -16,22 +16,43 @@ namespace Timeless {
 
 		// Animations
 
-		//int sluggy		= LoadAnimation("sprites\sluggy.gif", 17, 30);
-		//int sluggy2		= LoadAnimation("sprites\slug_brown.gif", 17, 30);
-		//int leaf		= LoadAnimation("sprites\leafie.gif", 14, 10);
-		//int leaf2		= LoadAnimation("sprites\leaf_green.gif", 14, 10);
-		//int heart		= LoadAnimation("sprites\hearts.gif", 14, 10);
-		//int fish		= LoadAnimation("sprites\fishie.gif", 19, 17);
-		//int fish2		= LoadAnimation("sprites\fish2.gif", 19, 17);
-		//int flymask		= LoadAnimation("sprites\flymask.gif", 71, 26);	
-		//int flyskull	= LoadAnimation("sprites\flyskull.gif", 71, 26);
-		//int flyeye		= LoadAnimation("sprites\flyeye.gif", 71, 26);
-		//int flyeyeg     = LoadAnimation("sprites\flyeye_green.gif", 71, 26);
-		//int flyheart	= LoadAnimation("sprites\flyheart.gif", 71, 26);
-		//int snow		= LoadAnimation("sprites\snow.gif", 4, 4);
-		//int rain		= LoadAnimation("sprites\raindrop.gif", 6, 6);
-		//int flame		= LoadAnimation("sprites\flame.gif", 8, 8);
-		//int halo		= LoadAnimation("sprites\halo.png", 144, 144);
+		anim_t sluggy;
+		anim_t sluggy2;
+		anim_t leaf;
+		anim_t leaf2;
+		anim_t heart;
+		anim_t fish;
+		anim_t fish2;
+		anim_t flymask;
+		anim_t flyskull;
+		anim_t flyeye;
+		anim_t flyeyeg;
+		anim_t flyheart;
+		anim_t snow;
+		anim_t rain;
+		anim_t flame;
+		anim_t halo;
+
+		void LoadResources()
+		{
+			sluggy		= LoadAnimation("sprites/sluggy.png", 17, 30);
+			sluggy2		= LoadAnimation("sprites/slug_brown.png", 17, 30);
+			leaf		= LoadAnimation("sprites/leafie.png", 14, 10);
+			leaf2		= LoadAnimation("sprites/leaf_green.png", 14, 10);
+			heart		= LoadAnimation("sprites/hearts.png", 14, 10);
+			fish		= LoadAnimation("sprites/fishie.png", 19, 17);
+			fish2		= LoadAnimation("sprites/fish2.png", 19, 17);
+			flymask		= LoadAnimation("sprites/flymask.png", 71, 26);	
+			flyskull	= LoadAnimation("sprites/flyskull.png", 71, 26);
+			flyeye		= LoadAnimation("sprites/flyeye.png", 71, 26);
+			flyeyeg     = LoadAnimation("sprites/flyeye_green.png", 71, 26);
+			flyheart	= LoadAnimation("sprites/flyheart.png", 71, 26);
+			snow		= LoadAnimation("sprites/snow.png", 4, 4);
+			rain		= LoadAnimation("sprites/raindrop.png", 6, 6);
+			flame		= LoadAnimation("sprites/flame.png", 8, 8);
+			halo		= LoadAnimation("sprites/halo.png", 144, 144);
+		}
+
 
 		//// Sprites & Imagess
 

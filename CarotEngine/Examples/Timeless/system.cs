@@ -13,12 +13,6 @@ using pr2.Common;
 namespace Timeless {
 	partial class Timeless {
 
-		//hacks
-		int systemtime;
-		Random r = new Random();
-		int Random(int min, int max) { return r.Next(min, max+1); }
-		//---
-
 		// Configuration variables
 
 		int ybase, vidmode;
@@ -42,9 +36,105 @@ namespace Timeless {
 		// Timers
 
 		int skewtimer, scrolltimer, bgrtimer, spritetimer, lenstimer;
-		
-		void InitSystem() {
-			
+
+		//--------------------------------------------------------------
+		//here was autoexec
+		//--------------------------------------------------------------
+
+
+
+		void CheckscrollPath()
+		{
+			if (systemtime > nextscroll)
+			{
+				if (scrollpath == 0) { scrollpath = 1; nextscroll = systemtime + 1100; targetspeed = 0 - 20; return; }
+				if (scrollpath == 1) { scrollpath = 2; nextscroll = systemtime + 1300; targetspeed = 16; return; }
+				if (scrollpath == 2) { scrollpath = 3; nextscroll = systemtime + 1100; targetspeed = 0 - 20; return; }
+				if (scrollpath == 3) { scrollpath = 0; nextscroll = systemtime + 1300; targetspeed = 8; return; }
+			}
+		}
+
+		void CalculateScroll()
+		{
+			CheckscrollPath();
+
+			while (scrolltimer != 0)
+			{
+				if (scrollspeed < targetspeed) scrollspeed++;
+				if (scrollspeed > targetspeed) scrollspeed--;
+				scrollofs += scrollspeed;
+				scrolltimer--;
+			}
+		}
+
+		void CheckSkewPath()
+		{
+			if (systemtime > nextskew)
+			{
+				skewlinesleft = 100;
+				skewtimer = 0;
+
+				if (skewpath == 0) { skewpath = 1; nextskew = systemtime + 2000; return; }
+				if (skewpath == 1) { skewpath = 2; nextskew = systemtime + 1500; return; }
+				if (skewpath == 2) { skewpath = 3; nextskew = systemtime + 1000; return; }
+				if (skewpath == 3) { skewpath = 0; nextskew = systemtime + 1500; return; }
+			}
+		}
+
+		void CheckSkew()
+		{
+			int skewval = 0;
+			CheckSkewPath();
+
+			while ((skewlinesleft != 0) && skewtimer > 1)
+			{
+				skewtimer -= 2;
+				switch (skewpath)
+				{
+					case 0: skewval = 1; break;
+					case 1: skewval = 0 - 3; break;
+					case 2: skewval = 5; break;
+					case 3: skewval = 0; break;
+				}
+				_skewlines[100 - skewlinesleft] = skewval;
+				skewlinesleft--;
+			}
+		}
+
+
+		void UpdateBackground()
+		{
+			while (bgrtimer != 0)
+			{
+				bgrtimer--;
+				bgrproc();
+			}
+		}
+
+		void MyTimer()
+		{
+			scrolltimer++;
+			skewtimer++;
+			bgrtimer++;
+			spritetimer++;
+			lenstimer++;
+			scripttimer++;
+		}
+
+		//void ScaleWrapBlit(int dx, int dy, int srcimg, int dw, int dh, int dest)
+		//void ScaleTo(int w, int h, int srcimg, int destimg)
+
+
+		void StaticInitializers()
+		{
+			bg = NewImage(256, 256);
+			bg2 = NewImage(256, 256);
+			bg3 = NewImage(256, 256);
+			LoadResources();
+		}
+
+		void Autoexec()
+		{
 			vidmode = 0;
 			switch (vidmode)
 			{
@@ -69,7 +159,7 @@ namespace Timeless {
 			//cursong = r;
 
 			InitTables();
-			//HookTimer("MyTimer");
+			//HookTimer("MyTimer"); //handled by Update()
 			
 			scrollpath = 0;
 			nextscroll = systemtime+700;
@@ -79,39 +169,23 @@ namespace Timeless {
 			for (i=0; i<100; i++)
 				_skewlines[i] = 1;
 
-			//RectFill(0, 0, 256, 256, 0, bg);
+			var b = new Blitter(bg);
+			b.SetColor(Color.Transparent);
+			b.RectFill(0, 0, 256, 256);
 
 			//InitScript();
 		}
 
-		void CheckSkewPath() {
-			if (systemtime > nextskew) {
-				skewlinesleft = 100;
-				skewtimer = 0;
 
-				if (skewpath == 0) { skewpath = 1; nextskew = systemtime + 2000; return; }
-				if (skewpath == 1) { skewpath = 2; nextskew = systemtime + 1500; return; }
-				if (skewpath == 2) { skewpath = 3; nextskew = systemtime + 1000; return; }
-				if (skewpath == 3) { skewpath = 0; nextskew = systemtime + 1500; return; }
-			}
+		void Tick()
+		{
+			//UpdateControls();
+			CalculateScroll();
+			CheckSkew();
+			UpdateBackground();
+			CheckScript();
 		}
-
-		void CheckSkew() {
-			int skewval = 0;
-			CheckSkewPath();
-
-			while ((skewlinesleft!=0) && skewtimer>1) {
-				skewtimer -= 2;
-				switch (skewpath) {
-					case 0: skewval = 1; break;
-					case 1: skewval = 0-3; break;
-					case 2: skewval = 5; break;
-					case 3: skewval = 0; break;
-				}
-				_skewlines[100-skewlinesleft] = skewval;
-				skewlinesleft--;
-			}
-		}
+	
 
 	}
 }

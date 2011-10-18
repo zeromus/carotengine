@@ -151,10 +151,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="bgr.cs" />
     <Compile Include="Blit.cs" />
     <Compile Include="lens.cs" />
     <Compile Include="le_tint.cs" />
     <Compile Include="Resource.cs" />
+    <Compile Include="script.cs" />
+    <Compile Include="sprites.cs" />
+    <Compile Include="sprites\spr_slug.cs" />
     <Compile Include="system.cs" />
     <Compile Include="timeless.cs" />
   </ItemGroup>
