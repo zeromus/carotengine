@@ -508,33 +508,34 @@ public class Blitter : GameEngineComponent {
 	}
 
 	/// <summary>
-	/// performs a rotscale centered about the center of the source. angle is in radians.
+	/// Performs a rotscale centered about the center of the source. angle is in radians.
 	/// </summary>
-	public void rotScale(Image src, int x, int y, float angle) {
-		rotScale(src, x, y, angle, 1, 1, src.Width * 0.5f, src.Height * 0.5f);
+	public void RotScale(Image src, int x, int y, float angle) {
+		RotScale(src, x, y, angle, 1, 1, src.Width * 0.5f, src.Height * 0.5f);
 	}
 	/// <summary>
-	/// performs a rotscale centered about the center of the source and scaled by the provided factor. angle is in radians.
+	/// This overload is the most verge-like, but be sure to note the radian units of the angle parameter and the fact that the scale is not multiplied by 1000!
+	/// Performs a rotscale centered about the center of the source and scaled by the provided factor. angle is in radians.
 	/// </summary>
-	public void rotScale(Image src, int x, int y, float angle, float scale) {
-		rotScale(src, x, y, angle, scale, scale, src.Width * 0.5f, src.Height * 0.5f);
+	public void RotScale(Image src, int x, int y, float angle, float scale) {
+		RotScale(src, x, y, angle, scale, scale, src.Width * 0.5f, src.Height * 0.5f);
 	}
 	/// <summary>
-	/// performs a rotscale centered around the specified point in the source image. angle is in radians.
+	/// performs a rotscale centered around the specified point in the source image. angle is in radians. 
 	/// </summary>
-	public void rotScale(Image src, int x, int y, float angle, float xc, float yc) {
-		rotScale(src, x, y, angle, 1, 1, xc, yc);
+	public void RotScale(Image src, int x, int y, float angle, float xc, float yc) {
+		RotScale(src, x, y, angle, 1, 1, xc, yc);
 	}
 	/// <summary>
 	/// performs a rotscale centered around the specified point in the source image and scaled by the provided factor. angle is in radians.
 	/// </summary>
-	public void rotScale(Image src, int x, int y, float angle, float scale, float xc, float yc) {
-		rotScale(src, x, y, angle, scale, scale, xc, yc);
+	public void RotScale(Image src, int x, int y, float angle, float scale, float xc, float yc) {
+		RotScale(src, x, y, angle, scale, scale, xc, yc);
 	}
 	/// <summary>
 	/// performs a rotscale centered around the specified point in the source image and scaled by the provided x/y factors. angle is in radians.
 	/// </summary>
-	public void rotScale(Image src, int x, int y, float angle, float xscale, float yscale, float xc, float yc)
+	public void RotScale(Image src, int x, int y, float angle, float xscale, float yscale, float xc, float yc)
 	{
 		MatrixStack ms = new MatrixStack();
 		ms.Translate(-xc, -yc, 0);

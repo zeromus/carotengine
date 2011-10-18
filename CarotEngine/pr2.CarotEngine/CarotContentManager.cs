@@ -269,6 +269,7 @@ namespace pr2.CarotEngine {
 					}
 					else if (bColor0 && png.ihdr.colortype == pr2.sharppng.ColorType.PALETTE && png.ihdr.bitdepth == 1)
 					{
+						psrc--; //??
 						int xmax = width;
 						int x = 0;
 						for (; ; )
@@ -277,8 +278,8 @@ namespace pr2.CarotEngine {
 							psrc++;
 							for (int i = 0; i < 8; i++)
 							{
-								int b = p & 0x01;
-								p >>= 1;
+								int b = (p & 0x80)>>7;
+								p <<= 1;
 								if (b == 0)
 								{
 									*((int*)pdst) = 0;
@@ -338,6 +339,7 @@ namespace pr2.CarotEngine {
 					}
 					else if (png.ihdr.colortype == pr2.sharppng.ColorType.PALETTE && png.ihdr.bitdepth == 1)
 					{
+						psrc--; //??
 						int xmax = width;
 						int x = 0;
 						for (; ; )
@@ -346,8 +348,8 @@ namespace pr2.CarotEngine {
 							psrc++;
 							for (int i = 0; i < 8; i++)
 							{
-								int b = p & 0x01;
-								p >>= 1;
+								int b = (p & 0x80) >> 7;
+								p <<= 1;
 #if XBOX360
 									*pdst++ = 0xFF;
 									*pdst++ = png.palette[b*3+2];

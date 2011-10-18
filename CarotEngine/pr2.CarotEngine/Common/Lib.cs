@@ -132,6 +132,9 @@ namespace pr2.Common {
 		public static float Rads(float degrees) {
 			return degrees / 360.0f * (float)((float)Math.PI * 2.0f);
 		}
+		/// <summary>
+		/// converts degrees to radians
+		/// </summary>
 		public static double Rads(double degrees) {
 			return degrees / 360.0d * (double)((double)Math.PI * 2.0d);
 		}
@@ -142,6 +145,10 @@ namespace pr2.Common {
 		public static float Degrees(float rads) {
 			return rads / 2.0f / (float)Math.PI * 360.0f;
 		}
+
+		/// <summary>
+		/// converts radians to degrees
+		/// </summary>
 		public static double Degrees(double rads) {
 			return rads / 2.0d / (double)Math.PI * 360.0d;
 		}
@@ -216,6 +223,8 @@ namespace pr2.Common {
 		/// logs the given text. if logging is not enabled, this will silently do nothing
 		/// </summary>
 		public static void log(string format, params object[] args) { Log.log(format, args); }
+
+		//TODO --------- add all of the below into a list manager helper class
 
 		/// <summary>
 		/// this function returns the appropriate scroll offset for a list
