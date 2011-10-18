@@ -33,12 +33,12 @@ namespace Cabedge
             //dont want to deal with resourcemanager for now
             ResourceManager.OverrideEnableBegin(false);
             cabedge = new Cabedge();
-            cabedge.run();
+            cabedge.Run();
         }
 
         protected override void GameInitialize()
         {
-            SetResolution(640, 480, false);
+            SetResolution(640, 480);
 
             LoadResources();
         }

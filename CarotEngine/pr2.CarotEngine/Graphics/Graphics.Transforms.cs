@@ -57,7 +57,7 @@ partial class GameEngine {
 	/// <summary>
 	/// generates a proper 2d othographic projection for the given destination size
 	/// </summary>
-	public Matrix generatePixelPerfectProjectionTransform(int w, int h) {
+	public Matrix GeneratePixelPerfectProjectionTransform(int w, int h) {
 		Matrix ret = Matrix.Identity;
 		ret.M11 = 2.0f / (float)w;
 		ret.M22 = 2.0f / (float)h;
@@ -68,7 +68,7 @@ partial class GameEngine {
 	/// generates a proper view transform for a standard 2d ortho projection, including half-pixel jitter and
 	/// re-establishing of a normal 2d graphics top-left origin
 	/// </summary>
-	public Matrix generatePixelPerfectViewTransform(int w, int h) {
+	public Matrix GeneratePixelPerfectViewTransform(int w, int h) {
 		Matrix ret = Matrix.Identity;
 		ret.M22 = -1.0f;
 		ret.M41 = -w * 0.5f - 0.5f;

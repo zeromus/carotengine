@@ -21,12 +21,12 @@ namespace Timeless {
 
 		static void Main(string[] args) {
 			timeless = new Timeless();
-			timeless.run();
+			timeless.Run();
 		}
 
 		protected override void GameInitialize()
 		{
-			SetResolution(320, 200, false);
+			SetResolution(320, 200);
 			test = LoadImage0("sprites/hourglass.png");
 		}
 

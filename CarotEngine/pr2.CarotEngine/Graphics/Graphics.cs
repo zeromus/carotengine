@@ -28,13 +28,12 @@ public partial class GameEngine {
 		screen = new BackbufferImage(Device);
 	}
 
-	protected void SetResolution(int xres, int yres, bool forceWidescreen) {
+	protected void SetResolution(int xres, int yres) {
 		screen.width = xres;
 		screen.height = yres;
 		manager.PreferredBackBufferWidth = xres;
 		manager.PreferredBackBufferHeight = yres;
 		manager.PreferMultiSampling = false;
-		//manager.IsWideScreenOnly = forceWidescreen;
 		manager.ApplyChanges();
 
 		//UNSURE - I think we should view drawing as always available,
@@ -43,15 +42,16 @@ public partial class GameEngine {
 	}
 
 	private void LoadGraphics() {
+		//I think we needed to re-grab this here
 		Device = manager.GraphicsDevice;
+
+		//these get destroyed, so we need to reload them here
 		LoadShaders();
 		SimpleVertex.Decl = new VertexDeclaration(SimpleVertex.VertexElements);
 		VertexVector2.Decl = new VertexDeclaration(VertexVector2.VertexElements);
 	}
 
 	private void UnloadGraphics() {
-		//foreach(PixelShader ps in pixelShaders.Values) ps.Dispose();
-		//foreach(VertexShader vs in vertexShaders.Values) vs.Dispose();
 	}
 
 	//public IDisposable VertexType(IVertexType type) { return new TempVertexDeclaration(Device, type); }
@@ -247,7 +247,7 @@ public partial class GameEngine {
 
 	/// <summary>
 	/// Sets the current rendering target. 
-	/// Also, unless we are in CustomRender mode, this wipes out the current Matrices and sets a pixel perfect projection and view.
+	/// Also, unless we are in CustomRender mode, this wipes out the current Matrices and sets a pixel perfect projection and view (to make the rendering state suitable for rendering to this destination with pixel perfection)
 	/// </summary>
 	public void SetDest(Image newdest) { _setDest(newdest, false); }
 	void _setDest(Image newdest, bool force) {
@@ -274,9 +274,12 @@ public partial class GameEngine {
 
 	}
 
+	/// <summary>
+	/// Sets current view and projection transform to matrices suitable for rendering to the current destination with pixel perfection
+	/// </summary>
     public void InstallPixelPerfectTransforms()
     {
-        Matrices.set(Matrix.Identity, generatePixelPerfectViewTransform(dest.Width, dest.Height), generatePixelPerfectProjectionTransform(dest.Width, dest.Height), Matrix.Identity);
+        Matrices.set(Matrix.Identity, GeneratePixelPerfectViewTransform(dest.Width, dest.Height), GeneratePixelPerfectProjectionTransform(dest.Width, dest.Height), Matrix.Identity);
     }
 
 	Image tex;
