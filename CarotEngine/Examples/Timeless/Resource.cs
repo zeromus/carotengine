@@ -33,46 +33,66 @@ namespace Timeless {
 		anim_t flame;
 		anim_t halo;
 
+
+		// Sprites & Images
+
+		Image bigeye;
+		Image bigeyeg;
+		Image bigheart;
+		Image bigsmile;
+		Image evilmask;
+		Image flower;
+		Image hourglass;
+		Image moon;
+		Image planet;
+		Image skull;
+		Image smalleye;
+		Image tinyeye;
+		Image smile;
+		Image smile2;
+		Image sun;
+		Image candle;
+		Image clock;
+
+
 		void LoadResources()
 		{
-			sluggy		= LoadAnimation("sprites/sluggy.png", 17, 30);
-			sluggy2		= LoadAnimation("sprites/slug_brown.png", 17, 30);
-			leaf		= LoadAnimation("sprites/leafie.png", 14, 10);
-			leaf2		= LoadAnimation("sprites/leaf_green.png", 14, 10);
-			heart		= LoadAnimation("sprites/hearts.png", 14, 10);
-			fish		= LoadAnimation("sprites/fishie.png", 19, 17);
-			fish2		= LoadAnimation("sprites/fish2.png", 19, 17);
-			flymask		= LoadAnimation("sprites/flymask.png", 71, 26);	
-			flyskull	= LoadAnimation("sprites/flyskull.png", 71, 26);
-			flyeye		= LoadAnimation("sprites/flyeye.png", 71, 26);
-			flyeyeg     = LoadAnimation("sprites/flyeye_green.png", 71, 26);
-			flyheart	= LoadAnimation("sprites/flyheart.png", 71, 26);
-			snow		= LoadAnimation("sprites/snow.png", 4, 4);
-			rain		= LoadAnimation("sprites/raindrop.png", 6, 6);
-			flame		= LoadAnimation("sprites/flame.png", 8, 8);
-			halo		= LoadAnimation("sprites/halo.png", 144, 144);
+			sluggy = LoadAnimation("sprites/sluggy.png", 17, 30);
+			sluggy2 = LoadAnimation("sprites/slug_brown.png", 17, 30);
+			leaf = LoadAnimation("sprites/leafie.png", 14, 10);
+			leaf2 = LoadAnimation("sprites/leaf_green.png", 14, 10);
+			heart = LoadAnimation("sprites/hearts.png", 14, 10);
+			fish = LoadAnimation("sprites/fishie.png", 19, 17);
+			fish2 = LoadAnimation("sprites/fish2.png", 19, 17);
+			flymask = LoadAnimation("sprites/flymask.png", 71, 26);
+			flyskull = LoadAnimation("sprites/flyskull.png", 71, 26);
+			flyeye = LoadAnimation("sprites/flyeye.png", 71, 26);
+			flyeyeg = LoadAnimation("sprites/flyeye_green.png", 71, 26);
+			flyheart = LoadAnimation("sprites/flyheart.png", 71, 26);
+			snow = LoadAnimation("sprites/snow.png", 4, 4);
+			rain = LoadAnimation("sprites/raindrop.png", 6, 6);
+			flame = LoadAnimation("sprites/flame.png", 8, 8);
+			halo = LoadAnimation("sprites/halo.png", 144, 144);
+
+			bigeye = LoadImage0("sprites/bigeye.png");
+			bigeyeg = LoadImage0("sprites/bigeye_green.png");
+			bigheart = LoadImage0("sprites/bigheart.png");
+			bigsmile = LoadImage0("sprites/bigsmile.png");
+			evilmask = LoadImage0("sprites/evilmask.png");
+			flower = LoadImage0("sprites/flower.png");
+			hourglass = LoadImage0("sprites/hourglass.png");
+			moon = LoadImage0("sprites/moon.png");
+			planet = LoadImage0("sprites/planet.png");
+			skull = LoadImage0("sprites/skullofawesome.png");
+			smalleye = LoadImage0("sprites/smalleye.png");
+			tinyeye = LoadImage0("sprites/tinyeye.png");
+			smile = LoadImage0("sprites/smallsmile.png");
+			smile2 = LoadImage0("sprites/smile_green.png");
+			sun = LoadImage0("sprites/sun.png");
+			candle = LoadImage0("sprites/candle.png");
+			clock = LoadImage0("sprites/smallclock.png");
 		}
 
-
-		//// Sprites & Imagess
-
-		//int bigeye		= LoadImage("sprites\bigeye.gif");
-		//int bigeyeg		= LoadImage("sprites\bigeye_green.gif");
-		//int bigheart	= LoadImage("sprites\bigheart.gif");
-		//int bigsmile	= LoadImage("sprites\bigsmile.gif");
-		//int evilmask	= LoadImage("sprites\evilmask.gif");
-		//int flower		= LoadImage("sprites\flower.gif");
-		//int hourglass	= LoadImage("sprites\hourglass.gif");
-		//int moon		= LoadImage("sprites\moon.gif");
-		//int planet		= LoadImage("sprites\planet.gif");
-		//int skull		= LoadImage("sprites\skullofawesome.gif");
-		//int smalleye	= LoadImage("sprites\smalleye.gif");
-		//int tinyeye		= LoadImage("sprites\tinyeye.gif");
-		//int smile		= LoadImage("sprites\smallsmile.gif");
-		//int smile2		= LoadImagE("sprites\smile_green.gif");
-		//int sun			= LoadImage("sprites\sun.gif");
-		//int candle		= LoadImage("sprites\candle.gif");
-		//int clock		= LoadImage("sprites\smallclock.gif");
 
 		////int rune[9];
 
