@@ -1,3 +1,5 @@
+//TODO - ADD LIBJPEG.NET + TGA + GIF AND CALL IT A DAY
+
 //using System;
 //using System.IO;
 //using System.Collections.Generic;

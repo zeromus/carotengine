@@ -27,6 +27,31 @@ namespace Timeless {
 		int systemtime;
 
 		Random rnd = new Random();
+		Blitter bCurr;
+
+		/// <summary>
+		/// Provided as a convenience for similarity to verge, this merely calls SetTextureWrap(true) and then does a blit
+		/// (to be moved into Blitter eventually)
+		/// </summary>
+		void WrapBlit(Blitter b, Image src, int x, int y)
+		{
+			SetTextureWrap(true);
+			b.Blit(src, x, y);
+			SetTextureWrap(false);
+		}
+
+		/// <summary>
+		/// Provided as a convenience for similarity to verge, this merely calls Blit in the correct pattern to simulate the desired result
+		/// </summary>
+		void BlitWrap(Blitter b, Image src, int x, int y)
+		{
+			int ox = x + src.Width - b.Dest.Width;
+			int oy = y + src.Height - b.Dest.Height;
+			b.Blit(src, x, y);
+			if(ox>0) b.Blit(src, -ox, y);
+			if (oy > 0) b.Blit(src, x, -oy);
+			if(ox>0 && oy>0) b.Blit(src, -ox, -oy);
+		}
 
 		int Random(int min, int max)
 		{
@@ -56,6 +81,7 @@ namespace Timeless {
 
 		public override void Update(GameTime gameTime)
 		{
+			bCurr = new Blitter(screen);
 			base.Update(gameTime); 
 			if (Microsoft.Xna.Framework.Input.GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) Exit();
 			systemtime++;
@@ -66,9 +92,13 @@ namespace Timeless {
 
 		protected override void Draw(GameTime gameTime) {
 			Blitter b = new Blitter(screen);
+			bCurr = b;
 			b.Clear(Color.Gray);
+			//SUPERSECRETTHINGY
+			WrapBlit(b, bg, 0, 0);
 			RenderSprites(b);
 			app.Window.Title = systemtime.ToString();
+			//b.ScaleBlit(spherepurple, 0, 0, 100,100); //test
 		}
 	}
 }

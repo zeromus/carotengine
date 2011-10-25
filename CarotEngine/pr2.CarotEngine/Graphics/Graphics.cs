@@ -153,29 +153,39 @@ public partial class GameEngine {
 
 
 	/// <summary>
-	/// sets min and mag filtering to nearest
+	/// Sets min and mag filtering to point filtering.
 	/// </summary>
 	public void SetPointFiltering() { SetPointFiltering(0); }
 
 	/// <summary>
-	/// sets min and mag filtering to nearest
+	/// (advanced) Sets min and mag filtering to point filtering on the specified sampler.
 	/// </summary>
 	public void SetPointFiltering(int sampler) {
 		SamplerStates[sampler].Filter = TextureFilter.Point;
 	}
 
 	/// <summary>
-	/// sets min and mag filtering to linear
+	/// Sets min and mag filtering to linear.
 	/// </summary>
-	public void SetLinearFiltering() { 
-		setLinearFiltering(0);
+	public void SetLinearFiltering() {
+		SetLinearFiltering(0);
 	}
 
 	/// <summary>
-	/// sets min and mag filtering to linear
+	/// (advanced) Sets min and mag filtering to linear on the specified sampler.
 	/// </summary>
-	public void setLinearFiltering(int sampler) {
+	public void SetLinearFiltering(int sampler)
+	{
 		SamplerStates[sampler].Filter = TextureFilter.Linear;
+	}
+
+	/// <summary>
+	/// sets whether textures will render wrapping (repeated) or not. This toggles between TextureAddressMode.Wrap and TextureAddressMode.Clamp
+	/// </summary>
+	public void SetTextureWrap(bool wrap)
+	{
+		SamplerStates[0].AddressU = wrap?TextureAddressMode.Wrap:TextureAddressMode.Clamp;
+		SamplerStates[0].AddressV = wrap ? TextureAddressMode.Wrap : TextureAddressMode.Clamp;
 	}
 
 	

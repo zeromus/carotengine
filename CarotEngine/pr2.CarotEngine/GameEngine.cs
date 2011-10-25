@@ -38,6 +38,12 @@ namespace pr2.CarotEngine
 	/// </summary>
 	partial class GameEngine
 	{
+		/// <summary>
+		/// This is sort of a global reference to the game engine base class instance.
+		/// You can use it for a number of global-ish things regarding rendering state and engine services.
+		/// (But you should have access to it through your derived game engine class as well).
+		/// We may want to rename this GameEngine or some such so that the game can call itself Game (instead of having to name itself)
+		/// </summary>
 		public static GameEngine Game;
 
 		protected GameEngine()

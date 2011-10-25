@@ -54,6 +54,50 @@ namespace Timeless {
 		Image candle;
 		Image clock;
 
+		// Background Images
+
+		Image facered;
+		Image faceblue;
+		Image facegreen;
+
+		Image sphereblue;
+		Image spheregreen;
+		Image spheregrey;
+		Image sphereorange;
+		Image spherepurple;
+
+		Image lightning;
+
+		Image bobblue;
+		Image bobgreen;
+		Image bobred;
+		Image bobpurple;
+
+		Image tiledbg0;
+		Image tiledbg1;
+		Image tiledbg2;
+		Image tiledbg3;
+		Image tiledbg4;
+		Image tiledbg5;
+		Image tiledbg6;
+		Image tiledbg7;
+		Image tiledbg8;
+		Image tiledbg9;
+
+		Image grad1;
+		Image grad2;
+		Image grad3;
+		Image grad4;
+		Image grad5;
+		Image grad6;
+		Image grad7;
+		Image grad8;
+
+		Image evilgrad1;
+		Image evilgrad2;
+		Image evilgrad3;
+		Image evilgrad4;
+
 
 		void LoadResources()
 		{
@@ -92,55 +136,57 @@ namespace Timeless {
 			candle = LoadImage0("sprites/candle.png");
 			clock = LoadImage0("sprites/smallclock.png");
 
+			// Background Images
+
+			facered = LoadImage0("background/face_red.png");
+			faceblue = LoadImage0("background/face_blue.png");
+			facegreen = LoadImage0("background/face_green.png");
+
+			sphereblue = LoadImage0("background/sphereblue.png");
+			spheregreen = LoadImage0("background/spheregreen.png");
+			spheregrey = LoadImage0("background/spheregrey.png");
+			sphereorange = LoadImage0("background/sphereorange.png");
+			spherepurple = LoadImage0("background/spherepurple.png");
+
+			lightning = LoadImage0("background/lightning.png");
+
+			bobblue = LoadImage0("background/bobblue.png");
+			bobgreen = LoadImage0("background/bobgreen.png");
+			bobred = LoadImage0("background/bobred.png");
+			bobpurple = LoadImage0("background/bobpurple.png");
+
+			tiledbg0 = LoadImage0("background/tiledbg0.png");
+			tiledbg1 = LoadImage0("background/tiledbg1.png");
+			tiledbg2 = LoadImage0("background/tiledbg2.png");
+			tiledbg3 = LoadImage0("background/tiledbg3.png");
+			tiledbg4 = LoadImage0("background/tiledbg4.png");
+			tiledbg5 = LoadImage0("background/tiledbg5.png");
+			tiledbg6 = LoadImage0("background/tiledbg6.png");
+			tiledbg7 = LoadImage0("background/tiledbg7.png");
+			tiledbg8 = LoadImage0("background/tiledbg8.png");
+			tiledbg9 = LoadImage0("background/tiledbg9.png");
+
+			grad1 = LoadImage0("background/_grad1.png");
+			grad2 = LoadImage0("background/_grad2.png");
+			grad3 = LoadImage0("background/_grad3.png");
+			grad4 = LoadImage0("background/_grad4.png");
+			grad5 = LoadImage0("background/_grad5.png");
+			grad6 = LoadImage0("background/_grad8.png");
+			grad7 = LoadImage0("background/_grad7.png");
+			grad8 = LoadImage0("background/_grad8.png");
+
+			evilgrad1 = LoadImage0("background/evilgrad.png");
+			evilgrad2 = LoadImage0("background/evilgd1.png");
+			evilgrad3 = LoadImage0("background/evilgd2.png");
+			evilgrad4 = LoadImage0("background/evilgrad3.png");
+
 			halo.image.Alphafy(Color.Magenta);
 		}
 
 
 		////int rune[9];
 
-		//// Background Images
 
-		//int facered     = LoadImage("background\face_red.gif");
-		//int faceblue	= LoadImage("background\face_blue.gif");
-		//int facegreen	= LoadImage("background\face_green.gif");
-
-		//int sphereblue	= LoadImage("background\sphereblue.gif");
-		//int spheregreen = LoadImage("background\spheregreen.gif");
-		//int spheregrey	= LoadImage("background\spheregrey.gif");
-		//int sphereorange= LoadImage("background\sphereorange.gif");
-		//int spherepurple= LoadImage("background\spherepurple.gif");
-
-		//int lightning	= LoadImage("background\lightning.gif");
-
-		//int bobblue		= LoadImage("background\bobblue.gif");
-		//int bobgreen	= LoadImage("background\bobgreen.gif");
-		//int bobred		= LoadImage("background\bobred.gif");
-		//int bobpurple	= LoadImage("background\bobpurple.gif");
-
-		//int tiledbg0	= LoadImage("background\tiledbg0.gif");
-		//int tiledbg1	= LoadImage("background\tiledbg1.gif");
-		//int tiledbg2	= LoadImage("background\tiledbg2.gif");
-		//int tiledbg3	= LoadImage("background\tiledbg3.gif");
-		//int tiledbg4	= LoadImage("background\tiledbg4.gif");
-		//int tiledbg5	= LoadImage("background\tiledbg5.gif");
-		//int tiledbg6	= LoadImage("background\tiledbg6.gif");
-		//int tiledbg7	= LoadImage("background\tiledbg7.gif");
-		//int tiledbg8	= LoadImage("background\tiledbg8.gif");
-		//int tiledbg9	= LoadImage("background\tiledbg9.gif");
-
-		//int grad1		= LoadImage("background\_grad1.png");
-		//int grad2		= LoadImage("background\_grad2.png");
-		//int grad3		= LoadImage("background\_grad3.png");
-		//int grad4		= LoadImage("background\_grad4.png");
-		//int grad5		= LoadImage("background\_grad5.png");
-		//int grad6		= LoadImage("background\_grad8.png");
-		//int grad7		= LoadImage("background\_grad7.png");
-		//int grad8		= LoadImage("background\_grad8.png");
-
-		//int evilgrad1	= LoadImage("background\evilgrad.gif");
-		//int evilgrad2	= LoadImage("background\evilgd1.pcx");
-		//int evilgrad3	= LoadImage("background\evilgd2.pcx");
-		//int evilgrad4	= LoadImage("background\evilgrad3.gif");
 
 		//int	fadedown	= LoadImage("background\fadedown.gif");
 		//int fadeup		= LoadImage("background\fadeup.gif");

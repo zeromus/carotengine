@@ -113,14 +113,23 @@ public class Blitter : GameEngineComponent {
 
 	public MatrixStack Transform { get { return grs.UserTransform; } }
 
+	/// <summary>
+	/// executes a clear on the image, which is an optimized rectfill of the entire surface.
+	/// as a consequence, some features (i.e. window) are not respected
+	/// </summary>
 	public void Clear(Color c) {
 		grs.Activate();
 		game.clear(c);
-		//ugh no support for window here
+		//ugh no support for window here.
 	}
-	public void Clear(int c) {
-		Clear(GameEngine.MakeColor(c));
-	}
+
+	//public void Clear(int c) {
+	//    Clear(GameEngine.MakeColor(c));
+	//}
+
+	/// <summary>
+	/// Same as Clear() but with transparent black (0,0,0,0)
+	/// </summary>
 	public void TClear() {
 		Clear(TColor);
 	}

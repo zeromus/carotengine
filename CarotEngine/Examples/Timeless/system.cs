@@ -107,7 +107,7 @@ namespace Timeless {
 			while (bgrtimer != 0)
 			{
 				bgrtimer--;
-				bgrproc();
+				if(bgrproc != null) bgrproc();
 			}
 		}
 
@@ -121,7 +121,21 @@ namespace Timeless {
 			scripttimer++;
 		}
 
-		//void ScaleWrapBlit(int dx, int dy, int srcimg, int dw, int dh, int dest)
+		void ScaleWrapBlit(int dx, int dy, Image srcimg, int dw, int dh, Image dest)
+		{
+			Image img = NewImage(dw, dh);
+			Blitter b = new Blitter(img);
+			b.TClear();
+			b.ScaleBlit(srcimg, 0, 0, dw, dh);
+			int mx = dx - (dw / 2);
+			int my = dy - (dh / 2);
+			if (mx < 0) mx += 255;
+			if (my < 0) my += 255;
+			b = new Blitter(dest);
+			BlitWrap(b, img, mx, my);
+			img.Dispose();
+		}
+
 		//void ScaleTo(int w, int h, int srcimg, int destimg)
 
 

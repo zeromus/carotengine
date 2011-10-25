@@ -13,9 +13,9 @@ using pr2.Common;
 namespace Timeless {
 	partial class Timeless {
 
-		Action bgrproc = () => { };
-		//int bgrstart;
-		//int bgrtick, bgrtoggle, bgrdie;
+		Action bgrproc = null;
+		int bgrstart;
+		int bgrtick, bgrtoggle, bgrdie;
 		//int colormixer = NewImage(1, 1);
 		
 	}

@@ -1,3 +1,5 @@
+//TODO - get rid of cache saving (render target preserve contents can handle it--it makes render targets work more like plain old textures
+
 
 using System;
 using System.Runtime.InteropServices;
@@ -262,9 +264,15 @@ namespace pr2.CarotEngine
 
 		public virtual void Cache()
 		{
-
 			if (tex_const != null)
 				throw new Exception("Cannot cache a constant image");
+
+			//if we dont have a tex_rt, then we haven't resolved. force ourselves to resolvem since this is serious business
+			if (tex_rt == null)
+			{
+				isDirty = true;
+				Resolve();
+			}
 
 			//create the cache tex if we need it
 			allocCache();
@@ -339,36 +347,33 @@ namespace pr2.CarotEngine
 
 			//if we don't have a rt, create it
 			if (rt == null)
-				rt = new RenderTarget2D(device, width, height, false, SurfaceFormat.Color, DepthFormat.None);
+				rt = new RenderTarget2D(device, width, height, false, SurfaceFormat.Color, DepthFormat.None, 0, RenderTargetUsage.PreserveContents);
 
 
-			////if we have a cache, we need to copy it in to preserve the semantics
+			//INTERESTING CODE ALERT
+			//--this code does not work right when it is put here. the render target will get clobbered or restored according to the RenderTargetUsage
+			//independent of what we do here.
+			//you can't use this after SetRenderTarget() because it will be unable to call SetData() on a bound render target
 			//if (tex_cache != null)
-			//    using (SpriteBatch sb = new SpriteBatch(ge.Device))
-			//    {
-			//        VertexDeclaration vd = ge.Device.VertexDeclaration;
-			//        PixelShader ps = ge.Device.PixelShader;
-			//        VertexShader vs = ge.Device.VertexShader;
-			//        ge.Device.PixelShader = null;
-			//        ge.Device.VertexShader = null;
-			//        sb.Begin(SpriteBlendMode.None, SpriteSortMode.Immediate, SaveStateMode.SaveState);
-			//        sb.Draw(tex_cache, new Vector2(0, 0), Color.White);
-			//        sb.End();
-			//        ge.Device.VertexDeclaration = vd;
-			//        ge.Device.PixelShader = ps;
-			//        ge.Device.VertexShader = vs;
-			//    }
-
-			if (tex_cache != null)
-			{
-				int size = SizeForTexture(tex_cache);
-				byte[] temp = new byte[size];
-				tex_cache.GetData(temp);
-				rt.SetData(temp);
-			}
+			//{
+			//    int size = SizeForTexture(tex_cache);
+			//    byte[] temp = new byte[size];
+			//    tex_cache.GetData(temp);
+			//    rt.SetData(temp);
+			//}
 
 			//go ahead and set the target
 			device.SetRenderTarget(rt);
+
+			//INTERESTING CODE ALERT
+			//--this code may be useful if we decide we dont want to use RenderTargetUsage.PreserveContents (but I bet we'll want to)
+			//if (tex_cache != null)
+			//    using (SpriteBatch sb = new SpriteBatch(this.device))
+			//    {
+			//        sb.Begin();
+			//        sb.Draw(tex_cache, new Vector2(0, 0), Color.White);
+			//        sb.End();
+			//    }
 
 
 			//since we're rendering to this image, we assume the cache will not longer be valid
