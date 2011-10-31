@@ -69,11 +69,24 @@ namespace Timeless {
 			double s = Math.Cos(Lib.Rads(degrees));
 			return (int)(s * 65535);
 		}
+
+        Image SuperSecretBuffer;
+        ushort[] SuperSecretTable;
 		protected override void GameInitialize()
 		{
 			app.IsFixedTimeStep = true;
 			app.TargetElapsedTime = TimeSpan.FromMilliseconds(10);
-			SetResolution(320, 200);
+
+            byte[] tmp = ResourceManager.ReadAllBytes("timeless_table.bin");
+            var ms = new System.IO.MemoryStream(tmp);
+            var br = new System.IO.BinaryReader(ms);
+            SuperSecretTable = new ushort[tmp.Length / 2];
+            for(int i=0;i<SuperSecretTable.Length;i++)
+                SuperSecretTable[i] = br.ReadUInt16();
+
+            SuperSecretBuffer = NewImage(320, 200);
+			
+            SetResolution(320, 200);
 			StaticInitializers();
 			Autoexec();
 		}
@@ -94,8 +107,9 @@ namespace Timeless {
 			Blitter b = new Blitter(screen);
 			bCurr = b;
 			b.Clear(Color.Gray);
-			//SUPERSECRETTHINGY
-			WrapBlit(b, bg, 0, 0);
+			SuperSecretThingy(scrollofs/16, systemtime/2, 0, bg, SuperSecretBuffer);
+			b.Blit(SuperSecretBuffer);
+			//WrapBlit(b, bg, 0, 0);
 			RenderSprites(b);
 			app.Window.Title = systemtime.ToString();
 			//b.ScaleBlit(spherepurple, 0, 0, 100,100); //test

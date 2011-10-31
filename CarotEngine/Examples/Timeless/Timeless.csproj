@@ -48,6 +48,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>false</XnaCompressContent>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -173,6 +174,7 @@
     <Compile Include="sprites\spr_slug.cs" />
     <Compile Include="sprites\spr_smilies.cs" />
     <Compile Include="sprites\spr_weather.cs" />
+    <Compile Include="supersecret.cs" />
     <Compile Include="system.cs" />
     <Compile Include="timeless.cs" />
   </ItemGroup>
