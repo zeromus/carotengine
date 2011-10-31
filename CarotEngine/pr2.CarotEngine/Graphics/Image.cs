@@ -342,8 +342,8 @@ namespace pr2.CarotEngine
 		{
 
 			//if we're already dirty, then this is an unexpected scenario
-			if (isDirty)
-				throw new Exception("Unexpected scenario: setTarget() on dirty image");
+			//if (isDirty)
+			//  throw new Exception("Unexpected scenario: setTarget() on dirty image");
 
 			//assume we're going to be dirty
 			isDirty = true;

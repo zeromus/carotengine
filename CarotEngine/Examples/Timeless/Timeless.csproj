@@ -156,8 +156,15 @@
   <ItemGroup>
     <Compile Include="Animation.cs" />
     <Compile Include="bgr.cs" />
+    <Compile Include="bgr\bgr0.cs" />
+    <Compile Include="bgr\bgr11.cs" />
+    <Compile Include="bgr\bgr12.cs" />
     <Compile Include="bgr\bgr3.cs" />
     <Compile Include="bgr\bgr4.cs" />
+    <Compile Include="bgr\bgr5.cs" />
+    <Compile Include="bgr\bgr6.cs" />
+    <Compile Include="bgr\bgr7.cs" />
+    <Compile Include="bgr\bgr8.cs" />
     <Compile Include="Blit.cs" />
     <Compile Include="lens.cs" />
     <Compile Include="le_tint.cs" />

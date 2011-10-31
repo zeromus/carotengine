@@ -181,6 +181,7 @@ namespace Timeless {
 			evilgrad4 = LoadImage0("background/evilgrad3.png");
 
 			halo.image.Alphafy(Color.Magenta);
+			bgalpha = NewImage(256, 256);
 		}
 
 
@@ -191,6 +192,8 @@ namespace Timeless {
 		//int	fadedown	= LoadImage("background\fadedown.gif");
 		//int fadeup		= LoadImage("background\fadeup.gif");
 		//int bgalpha     = NewImage(256, 256);
+
+		Image bgalpha;
 
 		// Tables
 		int[] pingpong3 = new int[4];

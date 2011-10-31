@@ -29,6 +29,11 @@ namespace Timeless {
 		Random rnd = new Random();
 		Blitter bCurr;
 
+		void SetLucent(Blitter b, int value)
+		{
+			b.Alpha = (100-value) / 100.0f;
+		}
+
 		/// <summary>
 		/// Provided as a convenience for similarity to verge, this merely calls SetTextureWrap(true) and then does a blit
 		/// (to be moved into Blitter eventually)
@@ -107,9 +112,16 @@ namespace Timeless {
 			Blitter b = new Blitter(screen);
 			bCurr = b;
 			b.Clear(Color.Gray);
+			
+			//do it with supersecret
 			SuperSecretThingy(scrollofs/16, systemtime/2, 0, bg, SuperSecretBuffer);
 			b.Blit(SuperSecretBuffer);
+			
+			//do it plain for debugging
 			//WrapBlit(b, bg, 0, 0);
+
+			//b.ScaleBlit(bobgreen, 0, 0, 100, 100);
+			
 			RenderSprites(b);
 			app.Window.Title = systemtime.ToString();
 			//b.ScaleBlit(spherepurple, 0, 0, 100,100); //test

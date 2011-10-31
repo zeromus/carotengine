@@ -142,6 +142,8 @@ namespace Timeless {
 		void StaticInitializers()
 		{
 			bg = NewImage(256, 256);
+			Blitter b = new Blitter(bg);
+			b.Clear(Color.Black);
 			bg2 = NewImage(256, 256);
 			bg3 = NewImage(256, 256);
 			LoadResources();

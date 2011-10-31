@@ -74,6 +74,9 @@ namespace Timeless {
 				if (systemtime < bgr_rtime)
 					return;
 
+				//HACK
+				bgr_rstate = 0;
+
 				bgr_rtime = 0 - 1;
 				switch (bgr_rstate)
 				{
@@ -81,10 +84,14 @@ namespace Timeless {
 						r = Random(0, 7);
 						//switch (r)
 						//{
-						//    case 0: InitializeBGR8(Random(0, 4)); bgr_rstate = 1;
-						//    case 1: InitializeBGR5(Random(0, 8)); bgr_rstate = 4;
-						//    case 2: InitializeBGR6(Random(0, 8)); bgr_rstate = 4;
-						//    case 3: InitializeBGR12(Random(0, 3)); bgr_rstate = 1;
+						//    case 0: 
+						//InitializeBGR8(Random(0, 4)); bgr_rstate = 1;
+						//    case 1: 
+						//InitializeBGR5(Random(0, 8)); bgr_rstate = 4;
+						//    case 2: 
+						//			InitializeBGR6(Random(0, 8)); bgr_rstate = 4;
+						//    case 3: 
+						//			InitializeBGR12(Random(0, 3)); bgr_rstate = 1;
 						//    case 4: InitializeBGR10(Random(0, 7)); bgr_rstate = 1;
 						//            InitializeBGR7();
 						//    case 5: InitializeBGR10(Random(0, 7)); bgr_rstate = 1;
@@ -107,14 +114,12 @@ namespace Timeless {
 						break;
 					case 2:		// Black screen effects				
 						r = Random(0, 3);
-						//switch (r)
+						switch (r)
 						{
-							//case 0: 
-							InitializeBGR4(Random(0, 6)); bgr_rstate = 1;
-							break;
-							//case 1: InitializeBGR4(Random(0, 6)); bgr_rstate = 1;					
-							//case 2: InitializeBGR11(Random(0, 3)); bgr_rstate = 0;
-							//case 3: InitializeBGR0(); bgr_rstate = 3; bgr_rtime = 1;
+						  case 0: InitializeBGR4(Random(0, 6)); bgr_rstate = 1; break;
+						  case 1: InitializeBGR4(Random(0, 6)); bgr_rstate = 1; break;
+							case 2: InitializeBGR11(Random(0, 3)); bgr_rstate = 0; break;
+							case 3: InitializeBGR0(); bgr_rstate = 3; bgr_rtime = 1; break;
 						}
 						break;
 					case 3:		// old-school! original timeless intro sequence
