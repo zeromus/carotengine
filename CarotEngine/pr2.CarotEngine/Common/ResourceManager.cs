@@ -156,6 +156,16 @@ namespace pr2.Common
 		{
 		}
 
+        public static byte[] ReadAllBytes(string fname)
+        {
+            Stream s = null;
+            try { s = Open(fname); }
+            catch { return null; }
+            byte[] ret = new byte[s.Length];
+            s.Read(ret, 0, ret.Length);
+            return ret;
+        }
+
 		public static string ReadString(string fname) 
 		{
 			Stream s;

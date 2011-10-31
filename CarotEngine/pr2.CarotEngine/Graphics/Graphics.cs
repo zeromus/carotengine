@@ -320,7 +320,7 @@ public partial class GameEngine {
 		tex = newtex;
 		if(tex == null)
 			Device.Textures[0] = null;
-		else Device.Textures[0] = tex.getTex();
+		else Device.Textures[0] = tex.GetTex();
 	}
 
 	//----render state

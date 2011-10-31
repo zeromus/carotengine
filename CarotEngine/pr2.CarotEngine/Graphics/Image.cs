@@ -16,7 +16,7 @@ namespace pr2.CarotEngine
 	public class BackbufferImage : Image
 	{
 		internal BackbufferImage(GraphicsDevice device) : base(device) { }
-		public override Texture2D getTex()
+		public override Texture2D GetTex()
 		{
 			throw new Exception("Cannot use screen as source image");
 		}
@@ -98,12 +98,12 @@ namespace pr2.CarotEngine
 		{
 			Image newimage = new Image(device, this.width, this.height);
 
-			Texture2D srctex = this.getTex();
+			Texture2D srctex = this.GetTex();
 			int size = this.SizeForTexture(srctex);
 			byte[] temp = new byte[size];
 			srctex.GetData(temp);
 			newimage.allocCache();
-			newimage.getTex().SetData(temp);
+			newimage.GetTex().SetData(temp);
 			return newimage;
 		}
 
@@ -203,7 +203,7 @@ namespace pr2.CarotEngine
 		//    //isDirty = false;
 		//}
 
-		public virtual Texture2D getTex()
+		public virtual Texture2D GetTex()
 		{
 			//if we have a const texture, return that
 			if (tex_const != null) return tex_const;
@@ -214,7 +214,9 @@ namespace pr2.CarotEngine
 			//if we have the rt tex, return that
 			if (tex_rt != null) return tex_rt;
 
-			//ok we don't have any of those
+			//ok we don't have any of those. guess we should return the render target
+			AllocRenderTarget();
+      return rt;
 
 			throw new Exception("Attempting to use an undefined texture. Maybe you forgot to render anything to the render target");
 
@@ -327,6 +329,11 @@ namespace pr2.CarotEngine
 			}
 		}
 
+		void AllocRenderTarget()
+		{
+			if (rt == null)
+				rt = new RenderTarget2D(device, width, height, false, SurfaceFormat.Color, DepthFormat.None, 0, RenderTargetUsage.PreserveContents);
+		}
 
 		/// <summary>
 		/// sets the image as the current render target
@@ -346,9 +353,7 @@ namespace pr2.CarotEngine
 				throw new Exception("Cannot set a constant image as target ");
 
 			//if we don't have a rt, create it
-			if (rt == null)
-				rt = new RenderTarget2D(device, width, height, false, SurfaceFormat.Color, DepthFormat.None, 0, RenderTargetUsage.PreserveContents);
-
+			AllocRenderTarget();
 
 			//INTERESTING CODE ALERT
 			//--this code does not work right when it is put here. the render target will get clobbered or restored according to the RenderTargetUsage
@@ -477,7 +482,7 @@ namespace pr2.CarotEngine
 				this.rect = rect;
 				this.img = img;
 				//tex = img.tex_cache;
-				tex = img.getTex(); //mbg 2/24/07 - changed this. not sure whether it makes sense
+				tex = img.GetTex(); //mbg 2/24/07 - changed this. not sure whether it makes sense
 				buf = new int[rect.Width * rect.Height];
 				//tex.GetData(buf);
 				tex.GetData(0, rect, buf, 0, buf.Length);
